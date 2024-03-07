@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+
+</head>
+
+<body>
+
+
+<nav>
+    <h1>Queue</h1>
+</nav>
+
+<h2>Current Queue Size: <%= queue.capacity %></h2>
+
+<% if (!queue.elemets) { %>
+    <h2>Queue is currently empty</h2>
+<% } %>
+
+<% if (queue.elemets) { %>
+
+    <% queue.elements.forEach(function(value){ %>
+    <%= value %>
+    <% }); %>
+<% } %>
+
+<h3>Enqueue</h3>
+
+<input type="text" id="enqueueInput">
+<input type="submit">
+
+<h3>Dequeue</h3>
+<button>Dequeue Item</button>
+<div id="dequeueOutput"></div>
+
+
+</body>
+
+<script>
+
+    function enqueueItem() {
+        const value = document.querySelector('#enqueueInput').value;
+
+        fetch("https://localhost3000/queue", {
+            method: "POST",
+            body: JSON.stringify({
+
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        });
+
+    }
+
+    function dequeueItem(){
+
+    }
+
+</script>
+</html>
